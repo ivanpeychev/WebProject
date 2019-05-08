@@ -9,3 +9,15 @@ D:\Desktop\Dev\Projects\csharp\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\Htt
 D:\Desktop\Dev\Projects\csharp\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\HttpServer.AssemblyInfo.cs
 D:\Desktop\Dev\Projects\csharp\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\HttpServer.dll
 D:\Desktop\Dev\Projects\csharp\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\HttpServer.pdb
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\bin\Debug\netcoreapp2.1\index.html
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\bin\Debug\netcoreapp2.1\HttpServer.deps.json
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\bin\Debug\netcoreapp2.1\HttpServer.runtimeconfig.json
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\bin\Debug\netcoreapp2.1\HttpServer.runtimeconfig.dev.json
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\bin\Debug\netcoreapp2.1\HttpServer.dll
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\bin\Debug\netcoreapp2.1\HttpServer.pdb
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\HttpServer.csprojAssemblyReference.cache
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\HttpServer.csproj.CoreCompileInputs.cache
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\HttpServer.AssemblyInfoInputs.cache
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\HttpServer.AssemblyInfo.cs
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\HttpServer.dll
+C:\Dev\Projects\csharp\WebProject\HttpServer\HttpServer\obj\Debug\netcoreapp2.1\HttpServer.pdb

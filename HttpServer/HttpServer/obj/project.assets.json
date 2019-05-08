@@ -686,23 +686,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\i.kyuchukov\\.nuget\\packages\\": {},
+    "C:\\Users\\vakas\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\Dev\\Projects\\WebProject\\HttpServer\\HttpServer\\HttpServer.csproj",
+      "projectUniqueName": "C:\\Dev\\Projects\\csharp\\WebProject\\HttpServer\\HttpServer\\HttpServer.csproj",
       "projectName": "HttpServer",
-      "projectPath": "D:\\Desktop\\Dev\\Projects\\WebProject\\HttpServer\\HttpServer\\HttpServer.csproj",
-      "packagesPath": "C:\\Users\\i.kyuchukov\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\Dev\\Projects\\WebProject\\HttpServer\\HttpServer\\obj\\",
+      "projectPath": "C:\\Dev\\Projects\\csharp\\WebProject\\HttpServer\\HttpServer\\HttpServer.csproj",
+      "packagesPath": "C:\\Users\\vakas\\.nuget\\packages\\",
+      "outputPath": "C:\\Dev\\Projects\\csharp\\WebProject\\HttpServer\\HttpServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\i.kyuchukov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vakas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
