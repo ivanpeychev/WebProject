@@ -7,18 +7,18 @@ namespace HttpServer
     {
         static void Main()
         {
-            //IHttpServer server = new HttpServer();
-            //server.Start();
+            IHttpServer server = new HttpServer();
+            server.Start();
 
-            AddRoute("users/get");
-            AddRoute("users/delete");
-            AddRoute("dealers/put");
-            AddRoute("dealers/get");
-            AddRoute("dealers/post");
+            //AddRoute("users/get");
+            //AddRoute("users/delete");
+            //AddRoute("dealers/put");
+            //AddRoute("dealers/get");
+            //AddRoute("dealers/post");
 
-            ListRoutes();
+            //ListRoutes();
 
-            ParseRequest("dealers/get");
+            //ParseRequest("dealers/get");
         }
 
         static Dictionary<string, HashSet<string>> routeActions = new Dictionary<string, HashSet<string>>();
