@@ -6,7 +6,9 @@ namespace HTTP.Exceptions
 {
     public class BadRequestException : Exception
     {
-        public BadRequestException(string message = "The Request was malformed or contains unsupported elements.") : base(message)
+        private new const string Message = "The Request was malformed or contains unsupported elements.";
+        public BadRequestException() 
+            :base(Message)
         {
 
         }
