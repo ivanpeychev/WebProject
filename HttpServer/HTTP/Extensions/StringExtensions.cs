@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HTTP.Extensions
+﻿namespace HTTP.Extensions
 {
-    public class StringExtensions
+    public static class StringExtensions
     {
+        public static string Capitalize(this string input)
+            => char.ToUpper(input[0]) + input.Substring(1).ToLower();
     }
 }

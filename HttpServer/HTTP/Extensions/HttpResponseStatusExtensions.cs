@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace HTTP.Extensions
 {
-    public class HttpResponseStatusExtensions
+    public static class HttpResponseStatusExtensions
     {
-        public static string GetResponseLine(string response)
-        {
-            // TODO: Finish this method
-            return new string(' ', 1);
-        }
+        public static string GetResponseLine(this HttpStatusCode statusCode)
+            => $"{(int)statusCode} {statusCode}";
     }
 }
