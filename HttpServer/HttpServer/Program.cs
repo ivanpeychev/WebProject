@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using HTTP.Exceptions;
+using HTTP.Headers;
 
 namespace HttpServer
 {
@@ -8,8 +9,8 @@ namespace HttpServer
     {
         static void Main()
         {
-            IHttpServer server = new HttpServer();
-            server.Start();
+            //IHttpServer server = new HttpServer();
+            //server.Start();
 
             //AddRoute("users/get");
             //AddRoute("users/delete");
@@ -20,6 +21,13 @@ namespace HttpServer
             //ListRoutes();
 
             //ParseRequest("dealers/get");
+
+            var headers = new HttpHeaderCollection();
+            headers.Add(new HttpHeader("test1", "value1"));
+            headers.Add(new HttpHeader("test2", "value2"));
+            headers.Add(new HttpHeader("test3", "value3"));
+            Console.WriteLine(headers.ToString());
+            Console.ReadLine();
         }
 
         static Dictionary<string, HashSet<string>> routeActions = new Dictionary<string, HashSet<string>>();

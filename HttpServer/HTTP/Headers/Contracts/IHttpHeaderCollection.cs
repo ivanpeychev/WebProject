@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HTTP.Headers.Contracts
 {
-    interface IHttpHeaderCollection
+    public interface IHttpHeaderCollection
     {
         void Add(HttpHeader header);
         bool ContainsHeader(string key);

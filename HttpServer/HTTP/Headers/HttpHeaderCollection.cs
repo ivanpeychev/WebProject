@@ -48,5 +48,10 @@ namespace HTTP.Headers
 
             return null;
         }
+
+        public override string ToString()
+        {
+            return string.Join(Environment.NewLine, this.headers.Values);
+        }
     }
 }
