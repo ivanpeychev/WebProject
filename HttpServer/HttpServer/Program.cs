@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using HTTP.Exceptions;
 using HTTP.Headers;
 
-namespace HttpServer
+namespace Server
 {
     class Program
     {

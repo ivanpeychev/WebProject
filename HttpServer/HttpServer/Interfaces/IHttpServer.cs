@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HttpServer
+namespace Server
 {
-    interface IHttpServer
+    interface IServer
     {
         void Start();
 
