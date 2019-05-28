@@ -40,8 +40,65 @@ namespace HTTP.Requests
             this.ParseRequestPath();
 
             this.ParseHeaders(splitRequestContent.Skip(1).ToArray());
-            
 
+            bool requestHasBody = splitRequestContent.Length > 1;
+            this.ParseRequestParameters(splitRequestContent[splitRequestContent.Length - 1], requestHasBody);
+        }
+
+        private void ParseRequestParameters(
+            string bodyParameters, 
+            bool requestHasBody)
+        {
+            this.ParseQueryParameters(this.Url);
+            if (requestHasBody)
+            {
+                this.ParseFormDataParameters(bodyParameters);
+            } 
+        }
+
+        private void ParseFormDataParameters(string bodyParameters)
+        {
+            var formDataKeyValuePairs = bodyParameters
+                .Split('&', StringSplitOptions.RemoveEmptyEntries);
+
+            ExtractRequestParameters(formDataKeyValuePairs, this.FormData);
+        }
+
+        private void ExtractRequestParameters(
+            string[] parameterKeyValuePairs,
+            Dictionary<string, object> parametersCollection)
+        {
+            foreach (var parameterKeyValuePair in parameterKeyValuePairs)
+            {
+                var keyValuePair = parameterKeyValuePair.Split('=', StringSplitOptions.RemoveEmptyEntries);
+                if (keyValuePair.Length != 2)
+                {
+                    throw new BadRequestException();
+                }
+                var parameterKey = keyValuePair[0];
+                var parameterValue = keyValuePair[1];
+
+                parametersCollection[parameterKey] = parameterValue;
+            }
+        }
+
+        private void ParseQueryParameters(string url)
+        {
+            var queryParameters = url
+                .Split(new [] { '?', '#' })
+                .Skip(1)
+                .ToArray()[0];
+
+            if (string.IsNullOrEmpty(queryParameters))
+            {
+                throw new BadRequestException();
+            }
+
+            var queryKeyValuePairs = queryParameters
+                .ToString()
+                .Split('&', StringSplitOptions.RemoveEmptyEntries);
+
+            ExtractRequestParameters(queryKeyValuePairs, this.QueryData);
         }
 
         private void ParseHeaders(string[] requestHeaders)
@@ -68,7 +125,7 @@ namespace HTTP.Requests
 
         private void ParseRequestPath()
         {
-            var path = this.Url.Split('?').FirstOrDefault();
+            var path = this.Url?.Split('?').FirstOrDefault();
             if (string.IsNullOrEmpty(path))
             {
                 throw new BadRequestException();
@@ -112,7 +169,6 @@ namespace HTTP.Requests
             }
             return false;
         }
-
 
         public string Path { get; private set; }
 
