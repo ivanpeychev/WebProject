@@ -3,7 +3,7 @@ using HTTP.Responses;
 using System.Net;
 using System.Text;
 
-namespace WebServer.Results
+namespace Server.Results
 {
     public class HtmlResult : HttpResponse
     {

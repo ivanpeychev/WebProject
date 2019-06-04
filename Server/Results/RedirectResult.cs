@@ -2,7 +2,7 @@
 using HTTP.Responses;
 using System.Net;
 
-namespace WebServer.Results
+namespace Server.Results
 {
     public class RedirectResult : HttpResponse
     {

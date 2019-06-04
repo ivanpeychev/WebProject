@@ -1,5 +1,6 @@
 ﻿using HTTP.Common;
 using HTTP.Enums;
+using HTTP.Extensions;
 using HTTP.Headers;
 using HTTP.Headers.Contracts;
 using HTTP.Responses.Contracts;
