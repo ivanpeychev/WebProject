@@ -28,9 +28,8 @@ namespace Server
 
             Console.WriteLine($"Server started at http://{LocalHostIpAddress}:{port}");
 
-            Task
-                .Run(this.ListenLoop)
-                .Wait();
+            var task = Task.Run(this.ListenLoop);
+            task.Wait();
         }
 
         public async Task ListenLoop()
@@ -39,7 +38,8 @@ namespace Server
             {
                 var client = await this.listener.AcceptSocketAsync();
                 var connectionHandler = new ConnectionHandler(client, this.serverRoutingTable);
-                await connectionHandler.ProcessRequestAsync();
+                var responseTask = connectionHandler.ProcessRequestAsync();
+                responseTask.Wait();
             }
         }
     }

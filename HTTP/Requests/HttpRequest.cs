@@ -42,14 +42,19 @@ namespace HTTP.Requests
             this.ParseHeaders(splitRequestContent.Skip(1).ToArray());
 
             bool requestHasBody = splitRequestContent.Length > 1;
-            this.ParseRequestParameters(splitRequestContent[splitRequestContent.Length - 1], requestHasBody);
+            bool requestHasQueryParameters = this.Url.Contains('?');
+            this.ParseRequestParameters(splitRequestContent[splitRequestContent.Length - 1], requestHasBody, requestHasQueryParameters);
         }
 
         private void ParseRequestParameters(
             string bodyParameters, 
-            bool requestHasBody)
+            bool requestHasBody,
+            bool requestHasQueryParameters)
         {
-            this.ParseQueryParameters(this.Url);
+            if (requestHasQueryParameters)
+            {
+                this.ParseQueryParameters(this.Url);
+            }
             if (requestHasBody)
             {
                 this.ParseFormDataParameters(bodyParameters);
@@ -85,9 +90,10 @@ namespace HTTP.Requests
         private void ParseQueryParameters(string url)
         {
             var queryParameters = url
-                .Split(new [] { '?', '#' })
+                .Split(new[] { '?', '#' })
                 .Skip(1)
-                .ToArray()[0];
+                .ToArray()
+                .FirstOrDefault();
 
             if (string.IsNullOrEmpty(queryParameters))
             {
