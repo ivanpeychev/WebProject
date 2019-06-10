@@ -5,11 +5,11 @@ using System.Text;
 
 namespace HTTP.Headers
 {
-    public class HttpHeaderCollection : IHttpHeaderCollection
+    public class HttpHeadersCollection : IHttpHeaderCollection
     {
         private readonly Dictionary<string, HttpHeader> headers;
 
-        public HttpHeaderCollection()
+        public HttpHeadersCollection()
         {
             this.headers = new Dictionary<string, HttpHeader>();
         }

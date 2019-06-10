@@ -1,4 +1,5 @@
-﻿using HTTP.Enums;
+﻿using HTTP.Cookies.Contracts;
+using HTTP.Enums;
 using HTTP.Headers.Contracts;
 using System.Collections.Generic;
 
@@ -11,6 +12,7 @@ namespace HTTP.Requests.Contracts
         Dictionary<string, object> FormData { get; }
         Dictionary<string, object> QueryData { get; }
         IHttpHeaderCollection Headers { get; }
+        IHttpCookiesCollection Cookies { get; }
         HttpRequestMethod RequestMethod { get; }
     }
 }

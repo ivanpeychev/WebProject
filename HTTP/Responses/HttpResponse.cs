@@ -1,4 +1,6 @@
 ﻿using HTTP.Common;
+using HTTP.Cookies;
+using HTTP.Cookies.Contracts;
 using HTTP.Enums;
 using HTTP.Extensions;
 using HTTP.Headers;
@@ -16,7 +18,7 @@ namespace HTTP.Responses
         public HttpResponse() { }
         public HttpResponse(HttpStatusCode statusCode)
         {
-            this.Headers = new HttpHeaderCollection();
+            this.Headers = new HttpHeadersCollection();
             this.Content = new byte[0];
             this.StatusCode = statusCode;
         }
@@ -26,6 +28,13 @@ namespace HTTP.Responses
         public IHttpHeaderCollection Headers { get; private set; }
 
         public byte[] Content { get; set; }
+
+        public IHttpCookiesCollection Cookies { get; }
+
+        public void AddCookie(HttpCookie HttpCookie)
+        {
+            this.Cookies.Add(HttpCookie);
+        }
 
         public void AddHeader(HttpHeader header)
         {
@@ -44,8 +53,16 @@ namespace HTTP.Responses
 
             result
                 .Append($"{GlobalConstants.HttpOneProtocolFragment} {this.StatusCode.GetResponseLine()}").Append(Environment.NewLine)
-                .Append(this.Headers).Append(Environment.NewLine)
-                .Append(Environment.NewLine);
+                .Append(this.Headers);
+
+            if (this.Cookies.HasCookies())
+            {
+                result
+                    .AppendLine($"{"Set-Cookie"}: {this.Cookies}")
+                    .AppendLine();
+            }
+
+            result.AppendLine();
 
             return result.ToString();
         }
