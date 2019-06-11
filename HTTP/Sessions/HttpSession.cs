@@ -35,7 +35,7 @@ namespace HTTP.Sessions
 
         public object GetParameter(string key)
         {
-            if (string.IsNullOrEmpty(key)
+            if (string.IsNullOrEmpty(key))
             {
                 throw new ArgumentNullException();
             }

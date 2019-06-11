@@ -6,6 +6,7 @@ using HTTP.Exceptions;
 using HTTP.Headers;
 using HTTP.Headers.Contracts;
 using HTTP.Requests.Contracts;
+using HTTP.Sessions.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -203,6 +204,7 @@ namespace HTTP.Requests
 
         public IHttpHeaderCollection Headers { get; }
         public IHttpCookiesCollection Cookies { get; }
+        public IHttpSession Session { get; set; }
 
         public HttpRequestMethod RequestMethod { get; private set; }
     }

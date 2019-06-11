@@ -8,6 +8,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using Server.Routing;
+using HTTP.Sessions;
+using HTTP.Cookies;
 
 namespace Server
 {
@@ -78,12 +80,44 @@ namespace Server
 
             if (httpRequest != null)
             {
+                string sessionId = this.SetRequestSession(httpRequest);
+
                 var httpResponse = this.HandleRequest(httpRequest);
+
+                this.SetResponseSession(httpResponse, sessionId);
 
                 await this.PrepareResponse(httpResponse);
             }
 
             this.client.Shutdown(SocketShutdown.Both);
+        }
+        private string SetRequestSession(IHttpRequest httpRequest)
+        {
+            string sessionId = null;
+
+            if (httpRequest.Cookies.ContainsCookie(HttpSessionStorage.SessionCookieKey))
+            {
+                var cookie = httpRequest.Cookies.GetCookie(HttpSessionStorage.SessionCookieKey);
+                sessionId = cookie.Value;
+                httpRequest.Session = HttpSessionStorage.GetSession(sessionId);
+            }
+            else
+            {
+                sessionId = Guid.NewGuid().ToString();
+                httpRequest.Session = HttpSessionStorage.GetSession(sessionId);
+            }
+
+            return sessionId;
+        }
+        private void SetResponseSession(IHttpResponse httpResponse, string sessionId)
+        {
+            if (sessionId != null)
+            {
+                var httpCookieKey = HttpSessionStorage.SessionCookieKey;
+                var httpCookieValue = $"{sessionId}; HttpOnly";
+                httpResponse
+                    .AddCookie(new HttpCookie(httpCookieKey, httpCookieValue));
+            }
         }
     }
 }

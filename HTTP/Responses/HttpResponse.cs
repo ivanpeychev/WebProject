@@ -19,6 +19,7 @@ namespace HTTP.Responses
         public HttpResponse(HttpStatusCode statusCode)
         {
             this.Headers = new HttpHeadersCollection();
+            this.Cookies = new HttpCookiesCollection();
             this.Content = new byte[0];
             this.StatusCode = statusCode;
         }
@@ -53,7 +54,8 @@ namespace HTTP.Responses
 
             result
                 .Append($"{GlobalConstants.HttpOneProtocolFragment} {this.StatusCode.GetResponseLine()}").Append(Environment.NewLine)
-                .Append(this.Headers);
+                .Append(this.Headers)
+                .AppendLine();
 
             if (this.Cookies.HasCookies())
             {
