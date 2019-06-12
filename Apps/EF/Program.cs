@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EF.Data;
+using System;
 
 namespace EF
 {
@@ -6,7 +7,7 @@ namespace EF
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var dbContext = new EfDbContext();
         }
     }
 }
