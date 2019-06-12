@@ -1,7 +1,7 @@
 ﻿using HTTP.Enums;
 using Server.Routing;
 
-namespace Web
+namespace DemoWeb
 {
     class Program
     {

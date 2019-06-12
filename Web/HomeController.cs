@@ -2,7 +2,7 @@
 using System.Net;
 using Server.Results;
 
-namespace Web
+namespace DemoWeb
 {
     public class HomeController
     {

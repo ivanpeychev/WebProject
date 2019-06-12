@@ -1,10 +1,8 @@
 ﻿using HTTP.Responses.Contracts;
 using System.Net;
 using Server.Results;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Web
+namespace DemoWeb
 {
     public class DownloadController
     {

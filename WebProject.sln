@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HTTP", "HTTP\HTTP.csproj", "{C76DDC24-BFB9-47E8-BFD5-F25A26910970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{79926E85-B729-4ADD-BDE4-968BBD9A0720}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{79926E85-B729-4ADD-BDE4-968BBD9A0720}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{37F9EEA2-9775-4BFD-9CAE-06D8DD43C5AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoWeb", "Web\DemoWeb.csproj", "{37F9EEA2-9775-4BFD-9CAE-06D8DD43C5AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{F710C9A9-0B2F-46B3-9154-CCFDA6FFEF95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37F9EEA2-9775-4BFD-9CAE-06D8DD43C5AB} = {F710C9A9-0B2F-46B3-9154-CCFDA6FFEF95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41CF2A79-DE7C-4CDF-B390-D8422A1E551E}

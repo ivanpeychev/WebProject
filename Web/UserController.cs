@@ -4,7 +4,7 @@ using Server.Results;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Web
+namespace DemoWeb
 {
     public class UserController
     {
