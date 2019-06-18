@@ -1,16 +1,16 @@
 ﻿using HTTP.Responses.Contracts;
 using System.Net;
 using Server.Results;
+using DemoWeb.Controllers;
+using HTTP.Requests.Contracts;
 
 namespace DemoWeb
 {
-    public class HomeController
+    public class HomeController : BaseController
     {
         public IHttpResponse Index()
         {
-            string content = "<h1>Hello, World!</h1>";
-
-            return new HtmlResult(content, HttpStatusCode.OK);
+            return this.View("Index");
         }
     }
 }
