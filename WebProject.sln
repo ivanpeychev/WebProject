@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF", "Apps\EF\EF.csproj", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoWeb", "Apps\DemoWeb\DemoWeb.csproj", "{38E6164A-F553-4CDF-9806-292AF0523FC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoEf", "Apps\DemoEf\DemoEf.csproj", "{D4214CE3-5EB1-4572-8196-370B8DB5A2E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{38E6164A-F553-4CDF-9806-292AF0523FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38E6164A-F553-4CDF-9806-292AF0523FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38E6164A-F553-4CDF-9806-292AF0523FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4214CE3-5EB1-4572-8196-370B8DB5A2E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4214CE3-5EB1-4572-8196-370B8DB5A2E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4214CE3-5EB1-4572-8196-370B8DB5A2E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4214CE3-5EB1-4572-8196-370B8DB5A2E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F49E6324-9D76-4C5A-85BD-98931E9007B8} = {F710C9A9-0B2F-46B3-9154-CCFDA6FFEF95}
 		{38E6164A-F553-4CDF-9806-292AF0523FC8} = {F710C9A9-0B2F-46B3-9154-CCFDA6FFEF95}
+		{D4214CE3-5EB1-4572-8196-370B8DB5A2E7} = {F710C9A9-0B2F-46B3-9154-CCFDA6FFEF95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41CF2A79-DE7C-4CDF-B390-D8422A1E551E}
