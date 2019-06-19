@@ -59,11 +59,11 @@ namespace HTTP.Responses
 
             if (this.Cookies.HasCookies())
             {
-                result
-                    .AppendLine($"{"Set-Cookie"}: {this.Cookies}")
-                    .AppendLine();
+                foreach (var cookie in this.Cookies)
+                {
+                    result.AppendLine($"{"Set-Cookie"}: {cookie}");
+                }
             }
-
             result.AppendLine();
 
             return result.ToString();

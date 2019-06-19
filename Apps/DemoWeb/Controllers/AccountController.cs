@@ -1,15 +1,14 @@
 ﻿using HTTP.Responses.Contracts;
-using System.Net;
 using Server.Results;
-using System.Collections.Generic;
-using System.Text;
 using DemoWeb.Controllers;
 using HTTP.Requests.Contracts;
-using DemoWeb.Data;
 using System.Linq;
+using DemoWeb.Services.Contracts;
 using DemoWeb.Services;
 using DemoWeb.Models;
 using System;
+using HTTP.Cookies;
+using DemoWeb.Common;
 
 namespace DemoWeb
 {
@@ -72,6 +71,41 @@ namespace DemoWeb
             }
 
             return new RedirectResult("/");
+        }
+        public IHttpResponse Login()
+        {
+            return this.View("Login");
+        }
+        public IHttpResponse DoLogin(IHttpRequest request)
+        {
+            var userName = request.FormData["username"].ToString().Trim();
+            var password = request.FormData["password"].ToString();
+
+            var hashedPassword = this.hashService.Hash(password);
+
+            if (!this.Db.Users.Any(u => u.Username == userName && u.Password == hashedPassword))
+            {
+                this.BadRequestError("Invalid username or password.");
+            }
+
+            var cookieContent = this.UserCookieService.GetUserCookie(userName);
+            var response = new RedirectResult("/");
+            response.Cookies.Add(new HttpCookie(GlobalConstants.AuthorizationCookieKey, cookieContent, 7));
+
+            return response;
+        }
+        public IHttpResponse Logout(IHttpRequest request)
+        {
+            var response = new RedirectResult("/");
+
+            if (request.Cookies.ContainsCookie(GlobalConstants.AuthorizationCookieKey));
+            {
+                var cookie = request.Cookies.GetCookie(GlobalConstants.AuthorizationCookieKey);
+                cookie.Delete();
+                response.AddCookie(cookie);
+            }
+
+            return response;
         }
     }
 }

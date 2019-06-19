@@ -45,8 +45,7 @@ namespace HTTP.Requests
 
             this.ParseCookies();
             bool requestHasBody = splitRequestContent.Length > 1;
-            bool requestHasQueryParameters = this.Url.Contains('?');
-            this.ParseRequestParameters(splitRequestContent[splitRequestContent.Length - 1], requestHasBody, requestHasQueryParameters);
+            this.ParseRequestParameters(splitRequestContent[splitRequestContent.Length - 1], requestHasBody);
         }
 
         private void ParseCookies()
@@ -70,11 +69,16 @@ namespace HTTP.Requests
 
         private void ParseRequestParameters(
             string bodyParameters, 
-            bool requestHasBody,
-            bool requestHasQueryParameters)
+            bool requestHasBody)
         {
-            if (requestHasQueryParameters)
-                this.ParseQueryParameters(this.Url);
+            var queryParameters = this.Url
+                .Split(new[] { '?', '#' })
+                .Skip(1)
+                .ToArray()
+                .FirstOrDefault();
+
+            if (!string.IsNullOrEmpty(queryParameters))
+                this.ParseQueryParameters(queryParameters);
             if (requestHasBody)
                 this.ParseFormDataParameters(bodyParameters);
         }
@@ -105,19 +109,8 @@ namespace HTTP.Requests
             }
         }
 
-        private void ParseQueryParameters(string url)
-        {
-            var queryParameters = url
-                .Split(new[] { '?', '#' })
-                .Skip(1)
-                .ToArray()
-                .FirstOrDefault();
-
-            if (string.IsNullOrEmpty(queryParameters))
-            {
-                throw new BadRequestException();
-            }
-
+        private void ParseQueryParameters(string queryParameters)
+        { 
             var queryKeyValuePairs = queryParameters
                 .ToString()
                 .Split('&', StringSplitOptions.RemoveEmptyEntries);

@@ -12,5 +12,10 @@ namespace DemoWeb
         {
             return this.View("Index");
         }
+
+        public IHttpResponse HelloUser(IHttpRequest request)
+        {
+            return new HtmlResult($"<h3>Hello, {this.GetUserName(request)}!</h3>", HttpStatusCode.OK);
+        }
     }
 }

@@ -19,11 +19,16 @@ namespace HTTP.Cookies
         }
         public string Key { get; }
         public string Value { get; }
-        public DateTime Expires { get; }
+        public DateTime Expires { get; protected set; }
         public bool IsNew { get; }
+
+        public void Delete()
+        {
+            this.Expires = DateTime.UtcNow.AddDays(-1);
+        }
         public override string ToString()
         {
-            return $"{this.Key}={this.Value}";
+            return $"{this.Key}={this.Value}; Expires={this.Expires:R}";
         }
     }
 }
